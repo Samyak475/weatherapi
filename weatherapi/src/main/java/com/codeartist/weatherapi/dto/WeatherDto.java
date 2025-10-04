@@ -8,7 +8,6 @@ import tools.jackson.databind.annotation.JsonNaming;
 
 import java.util.List;
 
-@Component
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherDto {
     public String getAddress() {

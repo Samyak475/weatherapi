@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.List;
 
-@Component
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Days implements Serializable {
     public String getDateTime() {

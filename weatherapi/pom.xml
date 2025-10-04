@@ -40,6 +40,20 @@
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 			<version>4.0.0-M3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-ratelimiter -->
+		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-all -->
+		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2 -->
+		<dependency>
+			<groupId>io.github.resilience4j</groupId>
+			<artifactId>resilience4j-spring-boot2</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+			<version>4.0.0-M2</version>
+
+		</dependency>
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>

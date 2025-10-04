@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.List;
 
-@Component
+
 public class ResponseDto implements Serializable {
     public String getAddress() {
         return address;

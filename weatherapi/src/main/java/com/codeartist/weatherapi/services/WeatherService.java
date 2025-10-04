@@ -4,6 +4,7 @@ import com.codeartist.weatherapi.dto.Days;
 import com.codeartist.weatherapi.dto.Hours;
 import com.codeartist.weatherapi.dto.ResponseDto;
 import com.codeartist.weatherapi.dto.WeatherDto;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
@@ -29,7 +30,7 @@ public class WeatherService {
 
     ResponseDto responseDto = new ResponseDto();
 
-
+    @RateLimiter(name = "weatherRateLimiter" , fallbackMethod = "fallBackForApi")
     @Cacheable(value = "weather", key = "#location")
     public ResponseDto getWeatherFrmApi(String location,WeatherDto weatherDto) throws URISyntaxException, IOException, InterruptedException {
         HttpResponse<String> response = getStringHttpResponse(location);
@@ -56,6 +57,10 @@ public class WeatherService {
 //        }
 
         return responseDto;
+    }
+    public ResponseDto fallBackForApi(String Location,Throwable t){
+        System.out.println("Here for fallback logic");
+        return new ResponseDto();
     }
 
     private HttpResponse<String> getStringHttpResponse(String location) throws URISyntaxException {

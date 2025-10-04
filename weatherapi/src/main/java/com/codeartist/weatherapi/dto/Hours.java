@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-@Component
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class  Hours implements Serializable {
 
