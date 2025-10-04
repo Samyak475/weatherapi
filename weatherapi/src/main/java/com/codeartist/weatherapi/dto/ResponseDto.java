@@ -1,16 +1,14 @@
 package com.codeartist.weatherapi.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import org.springframework.stereotype.Component;
-import tools.jackson.databind.annotation.JsonNaming;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
 import java.util.List;
 
 @Component
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class WeatherDto {
+public class ResponseDto implements Serializable {
     public String getAddress() {
         return address;
     }
@@ -42,6 +40,7 @@ public class WeatherDto {
     public void setDays(List<Days> days) {
         this.days = days;
     }
+
     @JsonProperty(value = "resolvedAddress")
     private String address;
     @JsonProperty(value = "timezone")
@@ -50,6 +49,4 @@ public class WeatherDto {
     private String description;
     @JsonProperty(value = "days")
     private List<Days> days;
-
 }
-

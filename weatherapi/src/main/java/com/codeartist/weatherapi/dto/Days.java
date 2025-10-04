@@ -2,11 +2,14 @@ package com.codeartist.weatherapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
+@Component
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Days {
+public class Days implements Serializable {
     public String getDateTime() {
         return dateTime;
     }

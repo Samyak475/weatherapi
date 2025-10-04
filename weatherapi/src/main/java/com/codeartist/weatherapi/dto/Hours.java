@@ -1,9 +1,13 @@
 package com.codeartist.weatherapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
+@Component
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class  Hours{
+public class  Hours implements Serializable {
 
     public String getDatetime() {
         return datetime;
